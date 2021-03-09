@@ -10,9 +10,9 @@
 
 module.exports.routes = {
 
-  'POST /': { view: 'pages/homepage' },
+  '/': { view: 'pages/homepage' },
 
-  '/abc' : {
+  'GET /abc' : {
     controller: 'UserController',
     action : 'test'
   }
