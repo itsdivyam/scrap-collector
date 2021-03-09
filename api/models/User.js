@@ -31,4 +31,10 @@ module.exports = {
       required: true
     }
   },
+  createUser : createUser
 };
+
+
+function createUser(){
+  // User.create();
+}

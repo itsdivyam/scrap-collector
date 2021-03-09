@@ -1,7 +1,8 @@
 module.exports = {
-  test : passtest
+  signUpUser : signUpUser
 };
 
-function passtest(req, res){
-  res.send("Time pass nahi!!!");
+function signUpUser(req, res){
+    console.log(req.body);
+    res.send(req.body);
 }
