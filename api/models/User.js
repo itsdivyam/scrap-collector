@@ -1,20 +1,13 @@
 //Model for User
 module.exports = {
   attributes: {
-    id: {
-      type: 'number',
-      unique: true,
-      columnName: 'id',
-      autoIncrement: true,
-      required: true
-    },
     name: {
       type: 'string',
       required: true
     },
     gender: {
       type: 'string',
-      isIn: ['male','female','other'],
+      isIn: ['Male','Female','Other'],
       required: true
     },
     email: {
@@ -34,7 +27,9 @@ module.exports = {
   createUser : createUser
 };
 
-
-function createUser(){
-  // User.create();
+async function createUser(data){
+  console.log("Coming in create user function-------",data);
+  let newUser = await User.create(data);
+  console.log("newUser--------",newUser);
+  return;
 }

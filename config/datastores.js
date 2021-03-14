@@ -17,7 +17,7 @@ module.exports.datastores = {
 
   scrapData: {
     adapter: 'sails-mongo',
-    url: 'mongodb://localhost:27017/scrapDB',
+    url: 'mongodb://root@localhost/scrapDB',
   }
 
 };
