@@ -9,3 +9,7 @@ function signUpUser(req, res){
     User.createUser(req.body);
     res.send(req.body);
 }
+
+
+//get user
+// req.body ==> {id : 12345} 

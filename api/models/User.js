@@ -33,3 +33,7 @@ async function createUser(data){
   console.log("newUser--------",newUser);
   return;
 }
+
+
+//create a function to get User
+// User.find({id:req.body.id})
