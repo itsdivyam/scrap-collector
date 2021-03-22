@@ -23,6 +23,16 @@ module.exports.routes = {
   'POST /user/signUpUser' : {
     controller: 'UserController',
     action : 'signUpUser'
+  },
+
+  'GET /user/getUser' : {
+    controller: 'UserController',
+    action: 'getUser'
+  },
+
+  'PUT /user/updateUser' : {
+    controller: 'UserController',
+    action: 'updateUser'
   }
 
 };

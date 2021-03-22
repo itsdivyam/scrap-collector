@@ -24,16 +24,34 @@ module.exports = {
       required: true
     }
   },
-  createUser : createUser
+  createUser : createUser,
+  getUser: getUser,
+  updateUser: updateUser
 };
 
 async function createUser(data){
-  console.log("Coming in create user function-------",data);
-  let newUser = await User.create(data);
-  console.log("newUser--------",newUser);
-  return;
+  let newUser = await User.create(data).fetch();
+
+  return newUser;
 }
 
+async function getUser(userId){
+  let user = await User.findOne({
+    id : userId
+  });
 
-//create a function to get User
-// User.find({id:req.body.id})
+  return user;
+}
+
+async function updateUser(updateData){
+  let user = await User.findOne({id:  updateData.id});
+
+  let updatedUser = await User.updateOne({
+    id:  updateData.id
+  }).set({
+    name: (updateData.name)? updateData.name : user.name,
+    gender: (updateData.email)? updateData.email : user.email
+  });
+
+  return updatedUser;
+}

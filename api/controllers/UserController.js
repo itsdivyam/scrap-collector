@@ -1,15 +1,39 @@
 const User = require('../models/User.js');
 
 module.exports = {
-  signUpUser : signUpUser
+  signUpUser : signUpUser,
+  getUser : getUser
 };
 
-function signUpUser(req, res){
-    console.log("This is from request----",req.body);
-    User.createUser(req.body);
-    res.send(req.body);
+async function signUpUser(req, res){
+    let newUser = await User.createUser(req.body);
+
+    let response = {
+      success : true,
+      data : newUser
+    };
+
+    res.send(response);
 }
 
+async function getUser(req, res){
+  let user = await User.getUser(req.query.id);
 
-//get user
-// req.body ==> {id : 12345} 
+  let response = {
+    success : true,
+    data : user
+  };
+
+  res.send(response);
+}
+
+async function updateUser(req, res){
+  let updatedUser = await User.updateUser(req.body);
+
+  let response = {
+    success : true,
+    data : user
+  };
+
+  res.send(response);
+}
