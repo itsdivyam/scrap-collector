@@ -33,6 +33,10 @@ module.exports.routes = {
   'PUT /user/updateUser' : {
     controller: 'UserController',
     action: 'updateUser'
-  }
+  },
 
-};
+  'POST /scrap/createScrap' : {
+    controller: 'ScrapController',
+    action : 'createScrap'
+  },
+}
