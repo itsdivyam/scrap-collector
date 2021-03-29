@@ -9,6 +9,9 @@
    border-radius: 4px;
    background-color: white;
  }
+ .form-header{
+   margin: 0 0 20px 33%;
+ }
 </style>
 
 <<!DOCTYPE html>
@@ -19,19 +22,13 @@
   </head>
   <body style="background-color:#383838">
     <div class="form-body">
-
-      <form class="login-form" action="javascript:void(0);">
-      <h1>Signup</h1>
+      <form class="signup-form" action="javascript:void(0);">
+      <h1 class="form-header">Signup</h1>
 
       <div class="form-group">
         <label for="name">Name</label>
         <input type="name" class="form-control" id="name" placeholder="Enter name">
       </div>
-<!--
-      <div class="form-input-material">
-        <input type="text" name="email" id="email" placeholder=" " autocomplete="off" class="form-control-material" required />
-        <label for="name">Email</label>
-      </div> -->
 
       <div class="form-group">
         <label for="email">Email address</label>
