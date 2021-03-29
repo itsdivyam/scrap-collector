@@ -3,7 +3,7 @@ const User = require('../models/User.js');
 module.exports = {
   signUpUser : signUpUser,
   getUser : getUser,
-  updateUser: updateUser
+  updateUser : updateUser
 };
 
 async function signUpUser(req, res){
