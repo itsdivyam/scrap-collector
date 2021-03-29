@@ -2,7 +2,8 @@ const User = require('../models/User.js');
 
 module.exports = {
   signUpUser : signUpUser,
-  getUser : getUser
+  getUser : getUser,
+  updateUser: updateUser
 };
 
 async function signUpUser(req, res){
