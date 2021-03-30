@@ -1,4 +1,5 @@
 const User = require('../models/User.js');
+const formidable = require('formidable');
 
 module.exports = {
   signUpUser : signUpUser,
@@ -7,14 +8,22 @@ module.exports = {
 };
 
 async function signUpUser(req, res){
-    let newUser = await User.createUser(req.body);
+  console.log("Coming here----");
+  const form = new formidable.IncomingForm();
+  form.multiples = false;
+  form.parse(req);
 
-    let response = {
-      success : true,
-      data : newUser
-    };
-
-    res.send(response);
+  form.on('field', function(name, value){
+    console.log("name---",name,"value----", value);
+    // let newUser = await User.createUser(req.body);
+    //
+    // let response = {
+    //   success : true,
+    //   data : newUser
+    // };
+    //
+    // res.send(response);
+  });
 }
 
 async function getUser(req, res){
