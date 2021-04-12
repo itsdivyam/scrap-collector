@@ -20,6 +20,10 @@ module.exports.routes = {
     view: 'pages/signup'
   },
 
+  'GET /feed' : {
+    view : 'pages/postFeed'
+  },
+
   'POST /user/signUpUser' : {
     controller: 'UserController',
     action : 'signUpUser'
