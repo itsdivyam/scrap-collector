@@ -21,13 +21,33 @@ module.exports = {
     },
     details: {
       type: 'string'
+    },
+    user: {
+      collection: 'user'
     }
   },
   createScrap : createScrap,
+  getUserScrap : getUserScrap,
+  getAllScrap : getAllScrap
 }
 
 async function createScrap(data){
   let newScrap = await Scrap.create(data).fetch();
 
   return newScrap;
+}
+
+async function getUserScrap(data){
+  let scrap = await Scrap.findOne({
+    id : data.id,
+    user : data.userId
+  });
+
+  return scrap;
+}
+
+async function getAllScrap(data){
+  let scrap = await Scrap.find();
+
+  return scrap;
 }
