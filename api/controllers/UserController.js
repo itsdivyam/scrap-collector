@@ -1,29 +1,39 @@
 const User = require('../models/User.js');
-const formidable = require('formidable');
 
 module.exports = {
   signUpUser : signUpUser,
   getUser : getUser,
-  updateUser : updateUser
+  updateUser : updateUser,
+  loginUser : loginUser
 };
 
 async function signUpUser(req, res){
-  console.log("Coming here----");
-  const form = new formidable.IncomingForm();
-  form.multiples = false;
-  form.parse(req);
 
-  form.on('field', function(name, value){
-    console.log("name---",name,"value----", value);
-    // let newUser = await User.createUser(req.body);
-    //
-    // let response = {
-    //   success : true,
-    //   data : newUser
-    // };
-    //
-    // res.send(response);
-  });
+  let user = {
+    name: req.param('name'),
+    email: req.param('email'),
+    gender: req.param('gender'),
+    typeOfUser: req.param('typeOfUser'),
+    password: req.param('password')
+  };
+
+  let newUser = await User.createUser(req.body);
+
+  let response = {
+    success : true,
+    data : newUser
+  };
+
+  res.redirect('/login');
+}
+
+async function loginUser(req, res){
+  let user = {
+    email: req.param('email'),
+    password: req.param('password')
+  };
+
+  
 }
 
 async function getUser(req, res){
