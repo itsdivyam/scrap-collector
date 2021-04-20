@@ -22,18 +22,18 @@
   </head>
   <body style="background-color:#383838">
     <div class="form-body">
-      <form>
+      <form method="POST" action="">
       <h1 class="form-header">Login</h1>
       <div class="form-group">
         <label for="email">Email address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email">
+        <input name="email" class="form-control" id="email" placeholder="Enter email">
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
+        <input name="password" class="form-control" id="password" placeholder="Password">
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <input type="submit" class="btn btn-primary">
     </form>
     </div>
   </body>
