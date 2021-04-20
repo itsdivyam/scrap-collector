@@ -1,3 +1,7 @@
+const uuid = require('node-uuid'),
+   md5 = require('md5'),
+   crypto = require('crypto');
+
 //Model for User
 module.exports = {
   attributes: {
@@ -22,6 +26,10 @@ module.exports = {
       type: 'string',
       isIn: ['MC','Citizen'],
       required: true
+    },
+    specialKey: {
+      type: 'text',
+      columnName: 'specialKey'
     }
   },
   createUser : createUser,
@@ -30,9 +38,30 @@ module.exports = {
 };
 
 async function createUser(data){
+  let specialKey = generateSalt();
+  let password = await generateEncryptedPassword(data.password, specialKey);
+  data.password = password;
+  data.specialKey = specialKey;
+
   let newUser = await User.create(data).fetch();
 
   return newUser;
+}
+
+function generateSalt() {
+  return md5(uuid.v1());
+}
+
+async function generateEncryptedPassword(password, salt) {
+  return new Promise(function(resolve, reject) {
+    crypto.pbkdf2(password, salt, 10, 512, 'sha512', function (err, encrypted) {
+      if (err) {
+        sails.log.error('User#generateEncryptedPassword :: ', err);
+        return reject(err);
+      }
+      return resolve(encrypted.toString('hex'));
+    });
+  });
 }
 
 async function getUser(userId){
