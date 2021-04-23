@@ -20,20 +20,33 @@ async function signUpUser(req, res){
   let newUser = await User.createUser(req.body);
 
   let response = {
-    success : true,
-    data : newUser
+    success : newUser.success,
+    data : newUser.data
   };
 
+  if(response.success == false){
+    return res.view('pages/signUp',{response : response})
+  }
   res.redirect('/login');
 }
 
 async function loginUser(req, res){
-  let user = {
+  let data = {
     email: req.param('email'),
     password: req.param('password')
   };
 
-  
+  let user = await User.getRegisteredUser(data);
+
+  let response = {
+    success : user.success,
+    data : user.data
+  };
+
+  if(response.success == false){
+    return res.view('pages/signUp',{response : response})
+  }
+  res.send(response);
 }
 
 async function getUser(req, res){
