@@ -19,6 +19,11 @@ module.exports.routes = {
     action : 'signUpUser'
   },
 
+  'GET /user/login' : {
+    controller: 'UserController',
+    action : 'loginUser'
+  },
+
   'GET /user/getUser' : {
     controller: 'UserController',
     action: 'getUser'
