@@ -30,11 +30,16 @@ module.exports = {
     specialKey: {
       type: 'text',
       columnName: 'specialKey'
+    },
+    city:{
+      type: 'text',
+      required : false
     }
   },
   createUser : createUser,
   getUser: getUser,
-  updateUser: updateUser
+  updateUser: updateUser,
+  getRegisteredUser : getRegisteredUser
 };
 
 async function createUser(data){
@@ -43,9 +48,22 @@ async function createUser(data){
   data.password = password;
   data.specialKey = specialKey;
 
+  let user = await User.findOne({
+    email : data.email
+  });
+
+  if(user){
+    return {
+      success : false,
+      data : 'User with same email already exists!!'
+    }
+  }
   let newUser = await User.create(data).fetch();
 
-  return newUser;
+  return {
+    success : true,
+    data : newUser
+  };
 }
 
 function generateSalt() {
@@ -83,4 +101,31 @@ async function updateUser(updateData){
   });
 
   return updatedUser;
+}
+
+async function getRegisteredUser(data){
+  let condition = {email:  data.email};
+  let user = await User.findOne(condition);
+
+  if(!user){
+    return{
+      success : false,
+      data : 'User with given email id not present, Please register!!'
+    }
+  }
+
+  let password = await generateEncryptedPassword(data.password, user.specialKey);
+
+  if(password === user.password){
+    return {
+      success : true,
+      data : user
+    };
+  }
+  else{
+    return {
+      success : false,
+      data : 'Entered password is wrong! Please enter right password'
+    };
+  }
 }
