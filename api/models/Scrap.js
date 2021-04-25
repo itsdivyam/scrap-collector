@@ -23,7 +23,7 @@ module.exports = {
       type: 'string'
     },
     user: {
-      collection: 'user'
+      model: 'user'
     }
   },
   createScrap : createScrap,
@@ -32,6 +32,8 @@ module.exports = {
 }
 
 async function createScrap(data){
+  let jsonLocation = JSON.parse(data.location);
+  data.location = jsonLocation;
   let newScrap = await Scrap.create(data).fetch();
 
   return newScrap;

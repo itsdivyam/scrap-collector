@@ -15,7 +15,6 @@ async function createScrap(req,res){
   };
 
   res.send(response);
-
 }
 
 async function getUserScrap(req, res){

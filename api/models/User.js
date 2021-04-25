@@ -34,6 +34,10 @@ module.exports = {
     city:{
       type: 'text',
       required : false
+    },
+    scrap: {
+      collection: 'scrap',
+      via: 'user'
     }
   },
   createUser : createUser,
