@@ -41,7 +41,6 @@ async function createScrap(data){
 
 async function getUserScrap(data){
   let scrap = await Scrap.findOne({
-    id : data.id,
     user : data.userId
   });
 
