@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<style media="screen">
+ .feed-header{
+   padding: 10px;
+   background: #00BFFF;
+   width:100% !important;
+   box-shadow: 2px 2px 3px #909090;
+ }
+ .container{
+   max-width: 100%;
+ }
+ .feed-section{
+   margin-top: 25px;
+ }
+ .feed-user{
+   padding: 20px;
+ }
+ .feed-post{
+   position: relative;
+   float: right;
+   padding: 40px;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   border-radius : 6px;
+ }
+ .user-photo{
+   width: 120px;
+   height: 120px;
+   margin: 0 auto;
+   padding: 10px;
+   border: 1px solid black;
+ }
+ .user-info{
+   text-align: center;
+   margin-top: 15px;
+ }
+ .other-userinfo{
+   margin-top: 20px;
+ }
+ .new-scrap-report{
+   margin-top: 20px;
+ }
+ .newReport{
+   border-radius: 4px;
+   border: none;
+   padding: 4px 8px 4px 8px;
+   background-color: #00BFFF;
+ }
+ .single-report{
+   margin: 0 auto;
+ }
+ .report-details{
+   margin-top: 30px;
+   font-size: 15px;
+ }
+ .report-details-text{
+   font-weight: bold;
+   margin-top: 15px;
+ }
+ .report-user-details{
+   margin-top: 15px;
+ }
+</style>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="feed-header">
+          <h4>Scrap collection portal</h4>
+        </div>
+      </div>
+      <div class="row feed-section">
+        <div class="col-4 feed-user">
+          <div class="user-photo">
+            <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" width="100px" height="100px">
+          </div>
+          <div class="user-info">
+            <b class="username">Sample name</b>
+            <div class="other-userinfo">
+              <b>Total reported : 5</b><br>
+              <b>Total collected : 4</b>
+            </div>
+            <div class="new-scrap-report">
+              <button class="newReport">Report new</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-7 feed-post">
+          <div class="single-report">
+            <div class="report-image">
+              <img src="https://media.gettyimages.com/photos/pile-of-scrap-metal-in-junkyard-picture-id528040254?s=612x612" width="400px" height="300px">
+            </div>
+            <div class="report-details">
+              <div class="report-details-text">This is the heading or summary provided.</div>
+              <div class="report-details-text">Location : Paidleganj, gorakhpur</div>
+              <div class="report-details-text">Status : <i>Reported</i></div> 
+              <div class="report-user-details">
+                User reported : <a href="">User name</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
