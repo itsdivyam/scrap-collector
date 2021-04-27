@@ -46,7 +46,7 @@ async function loginUser(req, res){
   if(response.success == false){
     return res.view('pages/signUp',{response : response})
   }
-  res.send(response);
+  res.redirect('/feed');
 }
 
 async function getUser(req, res){
